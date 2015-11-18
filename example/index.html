@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>My Sample Project</title>
+        <style>
+          .test {
+            width:100px;height:100px;position: absolute; left: 40%; top: 200px; background: #eee;border-radius: 110px;
+            background: rgba(155,250,150,.3);
+          }
+
+
+        </style>
+    </head>
+    <body>
+
+        <div class="parent">
+          <div class="test" id="test"></div>
+
+        </div>
+        <!-- data-main attribute tells require.js to load
+             scripts/main.js after require.js loads. -->
+
+        <script src="../src/transformer.js"></script>
+        <script>
+          var test = new Transformer(document.getElementById("test"));
+          test.transform({
+            translateX:"200px"
+          },
+          1000,
+          function(){
+            test.transform({translateY:"-200px"},1000)
+          })
+        </script>
+
+    </body>
+</html>
