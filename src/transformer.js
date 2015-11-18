@@ -1,3 +1,9 @@
+/*
+Transformer
+Version: 0.0.1
+Author: Patrick Kearns
+License: MIT
+*/
 
 function Transformer(el){
   if(el.nodeType === 1) {
