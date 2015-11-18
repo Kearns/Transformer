@@ -3,6 +3,20 @@ Transformer
 Version: 0.0.1
 Author: Patrick Kearns
 License: MIT
+
+TODO:
+-Add hooks for all transform types & CSS props.
+create functionality for updating each.
+-Add function to create CSS3 animations
+-Add Matrix section
+-Add SVG section
+-Allow certain transforms to overwrite others,
+ie let transform3d overwrite X/Y
+-Update
+-Update transform function to include easing
+-Create jquery integration
+-Clean up code
+-Additional Tests
 */
 
 function Transformer(el){
@@ -169,8 +183,8 @@ Transformer.prototype.transform = function Transform(args,duration,callback) {
  }
  else throw "Error: invalid arugment in position 1"
 
-  //if a callback is passed in to the function call it now
-  if (typeof callback !== 'undefined') setTimeout(function(){console.log(duration);callback()}, duration-duration/10);
+  //if a callback is passed in to the function call it now, add slight easing between transforms
+  if (typeof callback !== 'undefined') setTimeout(function(){callback()}, duration-duration/(duration/200));
 }
 /*
   Create User Defined Function on object

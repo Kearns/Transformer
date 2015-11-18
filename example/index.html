@@ -22,12 +22,29 @@
         <script src="../src/transformer.js"></script>
         <script>
           var test = new Transformer(document.getElementById("test"));
+          //Example Transform
           test.transform({
-            translateX:"200px"
+            scale3d:"2, 2, 1",
+            translateX:"200px",
           },
           1000,
+          //Callback to a second Transform
           function(){
-            test.transform({translateY:"-200px"},1000)
+          test.transform({
+            scale3d:"3, 3, 1",
+            translateY:"-200px",
+            rotate3d: "1, 1, 0, 90deg"
+          },
+          1000,
+          //Callback to a third Transform
+          function(){
+            test.transform({
+              scale3d:"1, 1, 1",
+              translateX:"0",
+              translateY:"0",
+              rotate3d: "0, 1, 0, 0deg"
+            },1000)
+            })
           })
         </script>
 
